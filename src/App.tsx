@@ -5,6 +5,9 @@ import { styled } from "@mui/material/styles";
 import Accounting from "./pages/Accounting";
 import Dashboard from "./pages/Dashboard";
 import Purchasing from "./pages/Dashboard";
+import MaterialManagement from "./pages/Inventory";
+import ReceivingReport from "./components/Forms/ReceivingReport";
+import InventoryDashboard from "./components/InventoryDashboard";
 
 function App() {
   return (
@@ -26,6 +29,14 @@ function App() {
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/accounting/*" element={<Accounting />} />
           <Route path="/purchasing/*" element={<Purchasing />} />
+          <Route path="/inventory" element={<MaterialManagement />}>
+            <Route path="dashboard" element={<InventoryDashboard />} />
+            <Route path="inventory-count" element={<Dashboard />} />
+            <Route path="receiving-report" element={<ReceivingReport />} />
+            <Route path="goods-issue" element={<Dashboard />} />
+            <Route path="delivery-receipt" element={<Dashboard />} />
+            <Route path="material-request" element={<Dashboard />} />
+          </Route>
         </Routes>
       </Box>
     </Box>
