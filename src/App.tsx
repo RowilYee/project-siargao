@@ -1,83 +1,41 @@
 import "./App.css";
-import { Routes, Link, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import Accounting from "./pages/Accounting";
 import Dashboard from "./pages/Dashboard";
 import Purchasing from "./pages/Dashboard";
-import MaterialManagement from "./pages/Inventory";
+import Inventory from "./pages/Inventory";
 import ReceivingReport from "./components/Forms/ReceivingReport";
 import InventoryDashboard from "./components/InventoryDashboard";
+import GoodsIssue from "./components/Forms/GoodsIssue";
+import SalesForm from "./components/Forms/SalesForm";
+import Navbar from "./components/Navbar";
+import Sales from "./pages/Sales";
 
 function App() {
   return (
-    <Box>
-      <NavContainer boxShadow={3}>
-        <Box>
-          <BrandName>sourceCode.io</BrandName>
-        </Box>
-        <LinkContainer>
-          <MyButton to="/dashboard">Dashboard</MyButton>
-          <MyButton to="/accounting">Accounting</MyButton>
-          <MyButton to="/inventory">Inventory Management</MyButton>
-          <MyButton to="/purchasing">Purchasing</MyButton>
-          <MyButton to="/production">Production</MyButton>
-        </LinkContainer>
-      </NavContainer>
-      <Box>
+    <>
+      <Navbar />
+      <Box paddingTop="60px">
         <Routes>
           <Route path="/dashboard/*" element={<Dashboard />} />
-          <Route path="/accounting/*" element={<Accounting />} />
+          <Route path="/accounting/*" element={<Accounting />}></Route>
           <Route path="/purchasing/*" element={<Purchasing />} />
-          <Route path="/inventory" element={<MaterialManagement />}>
+          <Route path="/inventory" element={<Inventory />}>
             <Route path="dashboard" element={<InventoryDashboard />} />
             <Route path="inventory-count" element={<Dashboard />} />
             <Route path="receiving-report" element={<ReceivingReport />} />
-            <Route path="goods-issue" element={<Dashboard />} />
+            <Route path="goods-issue" element={<GoodsIssue />} />
             <Route path="delivery-receipt" element={<Dashboard />} />
             <Route path="material-request" element={<Dashboard />} />
           </Route>
+          <Route path="/sales" element={<Sales />}>
+            <Route path="sales-invoice" element={<SalesForm />} />
+          </Route>
         </Routes>
       </Box>
-    </Box>
+    </>
   );
 }
 
 export default App;
-
-const MyButton = styled(Link)({
-  color: "black",
-  padding: "10px",
-  textDecoration: "none",
-  ":hover": {
-    backgroundColor: "#6c757d",
-    borderRadius: "5px",
-    color: "white",
-  },
-  ":focus": {
-    backgroundColor: "#6c757d",
-    borderRadius: "5px",
-    color: "white",
-  },
-});
-
-const NavContainer = styled(Box)({
-  display: "flex",
-  width: "100vw",
-  alignContent: "center",
-  gap: "5rem",
-  padding: ".5em",
-});
-
-const BrandName = styled(Box)({
-  fontSize: "25px",
-  paddingLeft: "30px",
-  alignSelf: "center",
-});
-
-const LinkContainer = styled(Box)({
-  alignSelf: "center",
-  width: "1000px",
-  display: "flex",
-  justifyContent: "space-around",
-});

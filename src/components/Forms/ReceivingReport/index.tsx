@@ -1,5 +1,5 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
+import { Box, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import FilledInput from "@mui/material/FilledInput";
@@ -25,6 +25,7 @@ function ReceivingReport() {
 
   return (
     <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+      <Typography>Receiving Form</Typography>
       <div>
         <TextField
           label="With normal TextField"

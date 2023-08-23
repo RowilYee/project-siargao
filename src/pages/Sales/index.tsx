@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 function InventoryManagement() {
   const inventoryModules = [
     { link: "dashboard", name: "Dashboard" },
-    { link: "inventory-count", name: "Inventory Count" },
+    { link: "sales-invoice", name: "Sales Invoice" },
     { link: "receiving-report", name: "Receiving Report" },
     { link: "goods-issue", name: "Goods Issue" },
     { link: "delivery-receipt", name: "Delivery Receipt" },
